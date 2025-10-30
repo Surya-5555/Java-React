@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@layer base {
+  :root[data-theme='dark'] body { @apply antialiased text-slate-100 bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-900 min-h-screen; }
+  :root[data-theme='dark'] a { @apply text-indigo-300 hover:text-indigo-200 hover:underline; }
+
+  :root[data-theme='light'] body { @apply antialiased bg-gray-50 text-gray-900 min-h-screen; }
+  :root[data-theme='light'] a { @apply text-blue-600 hover:underline; }
+}
+
+@layer components {
+  /* Dark theme components */
+  :root[data-theme='dark'] .card { @apply rounded-xl border border-white/10 bg-white/5 backdrop-blur shadow-xl; }
+  :root[data-theme='dark'] .btn { @apply inline-flex items-center justify-center px-5 py-3 rounded-lg bg-gradient-to-r from-indigo-600 to-violet-600 text-white hover:from-indigo-500 hover:to-violet-500 disabled:opacity-60; }
+  :root[data-theme='dark'] .btn-secondary { @apply inline-flex items-center justify-center rounded-lg border border-white/20 bg-white/10 text-slate-100 hover:bg-white/15; }
+  :root[data-theme='dark'] .input { @apply w-full p-3 rounded-lg bg-white/10 border border-white/10 text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500; }
+  :root[data-theme='dark'] .label { @apply block text-sm mb-1 text-slate-300; }
+  :root[data-theme='dark'] .muted { @apply text-slate-300; }
+  :root[data-theme='dark'] .muted-weak { @apply text-slate-400; }
+  :root[data-theme='dark'] .bar-track { @apply bg-white/10; }
+  :root[data-theme='dark'] .bar-fill { @apply bg-gradient-to-r from-indigo-500 to-violet-500; }
+  /* Ensure native dropdowns/date pickers use dark palette and readable text */
+  :root[data-theme='dark'] select,
+  :root[data-theme='dark'] input,
+  :root[data-theme='dark'] textarea { color-scheme: dark; }
+  :root[data-theme='dark'] select,
+  :root[data-theme='dark'] select option { background-color: #0f172a; color: #e5e7eb; }
+
+  /* Light theme components */
+  :root[data-theme='light'] .card { @apply rounded-xl border border-gray-200 bg-white shadow-md; }
+  :root[data-theme='light'] .btn { @apply inline-flex items-center justify-center px-5 py-3 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 disabled:opacity-60; }
+  :root[data-theme='light'] .btn-secondary { @apply inline-flex items-center justify-center rounded-lg border border-gray-300 bg-gray-100 text-gray-800 hover:bg-gray-200; }
+  :root[data-theme='light'] .input { @apply w-full p-3 rounded-lg bg-white border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500; }
+  :root[data-theme='light'] .label { @apply block text-sm mb-1 text-gray-700; }
+  :root[data-theme='light'] .muted { @apply text-gray-600; }
+  :root[data-theme='light'] .muted-weak { @apply text-gray-500; }
+  :root[data-theme='light'] .bar-track { @apply bg-gray-200; }
+  :root[data-theme='light'] .bar-fill { @apply bg-indigo-600; }
+  :root[data-theme='light'] select,
+  :root[data-theme='light'] input,
+  :root[data-theme='light'] textarea { color-scheme: light; }
+  :root[data-theme='light'] select,
+  :root[data-theme='light'] select option { background-color: #ffffff; color: #0f172a; }
+
+  /* Navbar/link contrast helpers */
+  :root[data-theme='light'] .app-header { @apply bg-white border-gray-200; }
+  :root[data-theme='light'] .app-header .brand-title { @apply text-slate-900; }
+  :root[data-theme='light'] .app-header .nav .navlink { @apply text-slate-700 hover:bg-slate-100; }
+  :root[data-theme='light'] .app-header .nav .navlink.navlink-active { @apply bg-indigo-600 text-white; }
+}
